@@ -6,9 +6,111 @@
     <title>Document</title>
 </head>
 <body>
-    <input id="field1" value="5" type="text">
-    <input id="field2" value="5" type="text">
-    <span id="message"></span>
+    1.
+    <input type="text" id="text1" placeholder="Поле 1">
+    <input type="text" id="text2" placeholder="Поле 2">
+    <button onclick="checkTextFields()">Перевірити</button>
+    <p id="message"></p>
+
+    <script>
+        function checkTextFields() {
+            const text1 = document.getElementById('text1').value;
+            const text2 = document.getElementById('text2').value;
+            const message = document.getElementById('message');
+
+            if (text1 && text2) {
+                message.textContent = "Обидва поля заповнені";
+            } else {
+                message.textContent = "Не всі поля заповнені";
+            }
+        }
+    </script>
+
+
+2.
+        <input type="number" id="num1" placeholder="Число 1">
+        <input type="number" id="num2" placeholder="Число 2">
+        <button onclick="checkSum()">Перевірити</button>
+        <p id="sumMessage"></p>
+    
+        <script>
+            function checkSum() {
+                const num1 = parseFloat(document.getElementById('num1').value);
+                const num2 = parseFloat(document.getElementById('num2').value);
+                const sumMessage = document.getElementById('sumMessage');
+    
+                if ((num1 + num2) > 10) {
+                    sumMessage.textContent = "Сума більша за 10";
+                } else {
+                    sumMessage.textContent = "Сума менша або дорівнює 10";
+                }
+            }
+        </script>
+
+
+3.
+<input type="text" id="textInput" placeholder="Введіть текст">
+<button onclick="checkJavaScript()">Перевірити</button>
+<p id="jsMessage"></p>
+
+<script>
+    function checkJavaScript() {
+        const textInput = document.getElementById('textInput').value;
+        const jsMessage = document.getElementById('jsMessage');
+
+        if (textInput.includes("JavaScript")) {
+            jsMessage.textContent = "Текст містить слово JavaScript";
+        } else {
+            jsMessage.textContent = "Текст не містить слово JavaScript";
+        }
+    }
+</script>
+
+
+4.
+<input type="number" id="numberInput" placeholder="Введіть число">
+<button onclick="checkRange()">Перевірити</button>
+<p id="rangeMessage"></p>
+
+<script>
+    function checkRange() {
+        const numberInput = parseFloat(document.getElementById('numberInput').value);
+        const rangeMessage = document.getElementById('rangeMessage');
+
+        if (numberInput > 10 && numberInput < 20) {
+            rangeMessage.textContent = "Число входить в діапазон від 10 до 20";
+        } else {
+            rangeMessage.textContent = "Число не входить в діапазон від 10 до 20";
+        }
+    }
+</script>
+
+
+5.
+<form id="myForm">
+    <input type="text" id="name" placeholder="Ім'я (не менше 3 символів)">
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Пароль (не менше 6 символів)">
+    <button type="button" onclick="validateForm()">Надіслати</button>
+</form>
+<p id="formMessage"></p>
+
+<script>
+    function validateForm() {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const formMessage = document.getElementById('formMessage');
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (name.length >= 3 && emailPattern.test(email) && password.length >= 6) {
+            window.location.href = "https://www.example.com"; // Замість цього URL використайте потрібний
+        } else {
+            formMessage.textContent = "Помилка! Перевірте введені дані.";
+        }
+    }
+</script>
     <script src="./js.js" type="module"></script>
 </body>
 </html>
